@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow Pro - Full Page Experience</title>
+  <!-- Google Fonts for a modern look -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap" rel="stylesheet">
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="wrapper">
+    <!-- Persistent Left Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <h2>TaskFlow </h2>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li class="nav-item active" data-page="tasks">Tasks</li>
+          <li class="nav-item" data-page="calendar">Calendar</li>
+          <li class="nav-item" data-page="reports">Reports</li>
+          <li class="nav-item" data-page="settings">Settings</li>
+        </ul>
+      </nav>
+    </aside>
+    
+    <!-- Main Content Area -->
+    <div class="content">
+      <!-- Header spanning full width -->
+      <header class="header">
+        <div class="header-content">
+          <h1>Welcome to TaskFlow</h1>
+          <p>Manage your tasks efficiently</p>
+        </div>
+      </header>
+      
+      <!-- Main container with categories and task area -->
+      <div class="main-container">
+        <!-- Categories Sidebar (inside main container) -->
+        <aside class="categories">
+          <h2>Categories</h2>
+          <ul id="categoryList">
+            <li class="category selected" data-category="all">All Tasks</li>
+            <li class="category" data-category="Personal">Personal</li>
+            <li class="category" data-category="Work">Work</li>
+            <li class="category" data-category="Others">Others</li>
+          </ul>
+        </aside>
+        <!-- Task Area -->
+        <main class="task-area">
+          <div class="todo-input">
+            <input type="text" id="taskInput" placeholder="Enter a new task..." />
+            <input type="date" id="dateInput" />
+            <select id="categorySelect">
+              <option value="Personal">Personal</option>
+              <option value="Work">Work</option>
+              <option value="Others">Others</option>
+            </select>
+            <button id="addTaskBtn">Add Task</button>
+          </div>
+          <div class="status-filter">
+            <button class="status-btn selected" data-status="all">All</button>
+            <button class="status-btn" data-status="active">Active</button>
+            <button class="status-btn" data-status="completed">Completed</button>
+          </div>
+          <ul id="taskList" class="task-list">
+            <!-- Task items will be injected here -->
+          </ul>
+        </main>
+      </div>
+      
+      <!-- Footer -->
+      <footer class="footer">
+        <p>&copy; 2025 TaskFlow. All rights reserved.</p>
+      </footer>
+    </div>
+  </div>
+  
+  <!-- Link to external JS file -->
+  <script src="js/app.js"></script>
+</body>
+</html>
