@@ -4,32 +4,27 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TaskFlow - Enhance Your Productivity</title>
-    <!-- Google Fonts for a modern look -->
+    <title>TaskFlow – Enhance Your Productivity</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap" rel="stylesheet" />
-    <!-- Link to external CSS -->
     <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
-    <!-- Login/Signup Container (shown before login) -->
-    <div id="loginContainer">
-        <!-- Authentication forms (two-step login, signup) will be rendered here by auth.js -->
-    </div>
+    <!-- Login/Signup Container -->
+    <div id="loginContainer"></div>
 
-    <!-- Main Application Container (hidden until login) -->
+    <!-- Main App Container -->
     <div id="appContainer" class="wrapper">
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="logo">
-                <h2>TaskFlow</h2>
+                <!-- New PNG Logo -->
+                <img src="images/taskflow_logo.png" alt="TaskFlow Logo" class="app-logo">
             </div>
             <nav class="nav">
                 <ul>
                     <li class="nav-item active" data-page="tasks">Tasks</li>
-                    <li class="nav-item" data-page="calendar">Calendar</li>
                     <li class="nav-item" data-page="reports">Reports</li>
-                    <li class="nav-item" data-page="settings">Settings</li>
                     <li class="nav-item" data-page="watchlists">Watchlists</li>
                 </ul>
             </nav>
@@ -39,10 +34,20 @@
         <div class="content">
             <header class="header">
                 <div class="header-content">
+                    <img src="images/taskflow_logo.png" alt="TaskFlow Logo" class="app-logo header-logo">
                     <h1>Welcome to TaskFlow</h1>
-                    <p>Enhance your productivity with tasks, calendars, reports, settings, and watchlists</p>
+                    <p>Enhance your productivity with tasks, reports, and watchlists</p>
+                </div>
+                <button id="settingsBtn" class="settings-btn" aria-label="Settings">&#9881;</button>
+                <div id="settingsDropdown" class="settings-dropdown">
+                    <div class="settings-option">
+                        <label for="darkModeToggle">Dark Mode</label>
+                        <input type="checkbox" id="darkModeToggle" />
+                    </div>
+                    <button id="logoutBtn" class="logout-btn">Logout</button>
                 </div>
             </header>
+
             <main id="pageContent" class="page-content"></main>
             <footer class="footer">
                 <p>&copy; 2025 TaskFlow. All rights reserved.</p>
@@ -50,7 +55,6 @@
         </div>
     </div>
 
-    <!-- Main JS entry point (ES6 module) -->
     <script type="module" src="js/app.js"></script>
 </body>
 
