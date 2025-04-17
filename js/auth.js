@@ -47,7 +47,7 @@ export function renderLoginEmailPage(container) {
     container.innerHTML = `
       <div class="login-page">
         <div class="login-card">
-          <img src="images/taskflow_logo.png" alt="TaskFlow Logo" class="app-logo login-logo">
+          <img src="./images/taskflow_logo.png" alt="TaskFlow Logo" class="app-logo login-logo">
           <h1>Welcome to TaskFlow</h1>
           <label for="loginEmail" class="sr-only">Email address</label>
           <input type="email"
@@ -88,7 +88,7 @@ export function renderLoginPasswordPage(container) {
     container.innerHTML = `
       <div class="login-page">
         <div class="login-card">
-          <img src="images/taskflow_logo.png" alt="TaskFlow Logo" class="app-logo login-logo">
+          <img src="./images/taskflow_logo.png" alt="TaskFlow Logo" class="app-logo login-logo">
           <h1>Sign in to TaskFlow</h1>
           <p class="user-email">${pendingEmail}</p>
           <label for="loginPassword" class="sr-only">Password</label>
@@ -117,7 +117,7 @@ export function renderSignupPage(container) {
     container.innerHTML = `
       <div class="login-page">
         <div class="login-card">
-          <img src="images/taskflow_logo.png" alt="TaskFlow Logo" class="app-logo login-logo">
+          <img src="./images/taskflow_logo.png" alt="TaskFlow Logo" class="app-logo login-logo">
           <h1>Sign Up for TaskFlow</h1>
           <label for="signupEmail" class="sr-only">Email address</label>
           <input type="email"
