@@ -1,5 +1,5 @@
 /* =================== */
-/* Global Reset & Base Styles */
+/* Global Reset & Base */
 /* =================== */
 * {
     margin: 0;
@@ -14,15 +14,54 @@ body {
     transition: background 0.3s, color 0.3s;
 }
 
+/* ================================== */
+/* Minimal Pop‑Out for TaskFlow Logo   */
+/* ================================== */
+.app-logo,
+.sidebar .logo img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+
+    /* keep transparent background */
+    background: transparent;
+    padding: 0;
+
+    /* subtle dark drop‑shadow + colored glow */
+    filter:
+        drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 8px rgba(108, 99, 255, 0.4)) drop-shadow(0 0 8px rgba(255, 101, 132, 0.4));
+
+    display: block;
+    margin: 0 auto;
+
+    /* optional pulse glow */
+    animation: neon-glow 2.5s ease-in-out infinite alternate;
+}
+
+.header-logo,
+.login-logo {
+    margin-bottom: 12px;
+}
+
+@keyframes neon-glow {
+    from {
+        filter:
+            drop-shadow(0 0 10px rgba(108, 99, 255, 0.7)) drop-shadow(0 0 10px rgba(255, 101, 132, 0.7));
+    }
+
+    to {
+        filter:
+            drop-shadow(0 0 20px rgba(108, 99, 255, 1)) drop-shadow(0 0 20px rgba(255, 101, 132, 1));
+    }
+}
+
 /* =================== */
-/* Login Page Styles (ChatGPT-Inspired) */
+/* Login Page Styles   */
 /* =================== */
-/* The login container fills the viewport */
 #loginContainer {
     width: 100vw;
     height: 100vh;
     background: #f7f8fa;
-    /* Use a subtle background or gradient */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,7 +87,6 @@ body {
 
 .login-card h1 {
     font-size: 1.5rem;
-    margin-bottom: 5px;
 }
 
 .login-card .sr-only {
@@ -56,8 +94,7 @@ body {
     left: -9999px;
 }
 
-.login-card input[type="email"],
-.login-card input[type="password"] {
+.login-card input {
     width: 100%;
     padding: 12px;
     border: 1px solid #ddd;
@@ -66,21 +103,25 @@ body {
 }
 
 .login-card input:focus {
-    outline: none;
     border-color: #6c63ff;
+    outline: none;
 }
 
-.continue-btn {
+.continue-btn,
+.back-btn,
+.provider-btn {
     width: 100%;
     padding: 12px;
-    background: #22c55e;
-    color: #fff;
     font-size: 1rem;
-    font-weight: 500;
-    border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background 0.2s;
+}
+
+.continue-btn {
+    background: #22c55e;
+    color: #fff;
+    border: none;
 }
 
 .continue-btn:hover {
@@ -88,15 +129,10 @@ body {
 }
 
 .back-btn {
-    width: 100%;
-    padding: 10px;
+    margin-top: 5px;
     background: #ddd;
     color: #333;
-    font-size: 0.9rem;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.2s;
 }
 
 .back-btn:hover {
@@ -120,6 +156,17 @@ body {
     position: relative;
 }
 
+.login-divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #ddd;
+    transform: translateY(-50%);
+}
+
 .login-divider span {
     background: #fff;
     padding: 0 10px;
@@ -127,19 +174,6 @@ body {
     color: #999;
     font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.login-divider::before {
-    content: "";
-    height: 1px;
-    background: #ddd;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 0;
 }
 
 .login-providers {
@@ -149,17 +183,12 @@ body {
 }
 
 .provider-btn {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
     background: #fff;
+    border: 1px solid #ddd;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 8px;
-    cursor: pointer;
-    transition: background 0.2s;
     font-weight: 500;
 }
 
@@ -170,6 +199,7 @@ body {
 .login-terms {
     font-size: 0.8rem;
     color: #999;
+    margin-top: 10px;
 }
 
 .login-terms a {
@@ -182,9 +212,8 @@ body {
 }
 
 /* =================== */
-/* Main Application Styles */
+/* Main App Styles     */
 /* =================== */
-/* Initially hidden; shown after login */
 #appContainer {
     display: none;
 }
@@ -205,10 +234,9 @@ body {
     border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.sidebar .logo h2 {
-    font-size: 1.8rem;
+.sidebar .logo {
+    text-align: center;
     margin-bottom: 20px;
-    letter-spacing: 1px;
 }
 
 .nav ul {
@@ -220,7 +248,7 @@ body {
     cursor: pointer;
     border-radius: 4px;
     margin-bottom: 10px;
-    transition: background 0.3s, color 0.3s;
+    transition: background .3s, color .3s;
     font-weight: 500;
 }
 
@@ -230,7 +258,7 @@ body {
     color: #6c63ff;
 }
 
-/* Content Area */
+/* Content */
 .content {
     flex: 1;
     display: flex;
@@ -239,6 +267,7 @@ body {
 
 /* Header */
 .header {
+    position: relative;
     background: linear-gradient(135deg, #6c63ff, #ff6584);
     color: #fff;
     padding: 30px 20px;
@@ -246,24 +275,40 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.settings-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+    transition: color .3s;
+}
+
+.settings-btn:hover {
+    color: #ddd;
+}
+
 .header h1 {
-    margin-bottom: 10px;
     font-size: 2.4rem;
+    margin-bottom: 10px;
     letter-spacing: 1px;
 }
 
 .header p {
     font-size: 1rem;
-    opacity: 0.9;
+    opacity: .9;
 }
 
-/* Page Content with smooth fade animations */
+/* Page Content */
 .page-content {
     flex: 1;
     padding: 30px;
     overflow-y: auto;
     opacity: 1;
-    transition: opacity 0.5s;
+    transition: opacity .5s;
 }
 
 .page-content.fade-out {
@@ -279,13 +324,13 @@ body {
     background: #f7f8fa;
     text-align: center;
     padding: 15px;
-    font-size: 0.9rem;
+    font-size: .9rem;
     color: #777;
     border-top: 1px solid #ddd;
 }
 
 /* =================== */
-/* To-Do List / Tasks Styles */
+/* Tasks / To-Do Styles */
 /* =================== */
 .task-area {
     flex: 1;
@@ -299,23 +344,21 @@ body {
     margin-bottom: 20px;
 }
 
-.todo-input input[type="text"],
-.todo-input input[type="date"] {
-    flex: 2;
+.todo-input input,
+.todo-input select {
     padding: 10px;
     border: 1px solid #e0e0e0;
     border-radius: 4px;
     font-size: 1rem;
-    background-color: #fff;
+    background: #fff;
+}
+
+.todo-input input {
+    flex: 2;
 }
 
 .todo-input select {
     flex: 1;
-    padding: 10px;
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
-    font-size: 1rem;
-    background-color: #fff;
 }
 
 .todo-input button {
@@ -324,9 +367,8 @@ body {
     border: none;
     border-radius: 4px;
     color: #fff;
-    font-size: 1rem;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background .3s;
 }
 
 .todo-input button:hover {
@@ -337,19 +379,19 @@ body {
     margin-bottom: 20px;
 }
 
-.search-bar input[type="text"] {
+.search-bar input {
     width: 100%;
     padding: 10px;
-    font-size: 1rem;
     border: 1px solid #e0e0e0;
     border-radius: 4px;
-    background-color: #fff;
+    font-size: 1rem;
+    background: #fff;
 }
 
 .status-filter {
-    margin-bottom: 20px;
     display: flex;
     gap: 10px;
+    margin-bottom: 20px;
 }
 
 .status-filter button {
@@ -358,7 +400,7 @@ body {
     background: #fff;
     border-radius: 20px;
     cursor: pointer;
-    transition: background 0.3s, color 0.3s;
+    transition: background .3s, color .3s;
 }
 
 .status-filter button.selected,
@@ -370,8 +412,8 @@ body {
 
 .task-list {
     list-style: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
 }
 
 .task-item {
@@ -383,7 +425,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    transition: transform .2s, box-shadow .2s;
     cursor: grab;
 }
 
@@ -393,7 +435,7 @@ body {
 }
 
 .task-item.dragging {
-    opacity: 0.6;
+    opacity: .6;
 }
 
 .task-content {
@@ -408,7 +450,7 @@ body {
 }
 
 .task-details {
-    font-size: 0.85rem;
+    font-size: .85rem;
     color: #777;
     margin-top: 4px;
 }
@@ -425,7 +467,7 @@ body {
     cursor: pointer;
     font-size: 1rem;
     padding: 5px;
-    transition: color 0.2s;
+    transition: color .2s;
 }
 
 .task-actions button:hover {
@@ -433,43 +475,62 @@ body {
 }
 
 .edit-input {
-    font-size: 1rem;
     padding: 5px;
     border: 1px solid #e0e0e0;
     border-radius: 4px;
+    font-size: 1rem;
 }
 
 /* =================== */
-/* Settings Page Styles (with Logout) */
+/* Settings Dropdown   */
 /* =================== */
-.settings-page {
-    padding: 20px;
+.settings-dropdown {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: none;
+    flex-direction: column;
+    min-width: 180px;
+    padding: 10px;
+    z-index: 100;
+    color: #333;
 }
 
-.settings-page h2 {
-    margin-bottom: 20px;
-    font-size: 2rem;
-    color: #444;
+.settings-dropdown.open {
+    display: flex;
 }
 
 .settings-option {
-    margin-bottom: 20px;
-    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 1rem;
+    border-bottom: 1px solid #eee;
 }
 
-.settings-option label {
-    margin-right: 10px;
+.settings-option:last-child {
+    border-bottom: none;
+}
+
+#darkModeToggle {
+    transform: scale(1.2);
+    cursor: pointer;
 }
 
 .logout-btn {
-    padding: 12px 20px;
+    margin-top: 10px;
+    padding: 10px;
     background: #ff4d4f;
     color: #fff;
-    font-size: 1rem;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background .3s;
 }
 
 .logout-btn:hover {
@@ -477,7 +538,7 @@ body {
 }
 
 /* =================== */
-/* Watchlists Page Updated Styles */
+/* Watchlists Styles   */
 /* =================== */
 .watchlist-page {
     padding: 30px;
@@ -502,7 +563,7 @@ body {
     background: #fff;
     border-radius: 20px;
     cursor: pointer;
-    transition: background 0.3s, color 0.3s;
+    transition: background .3s, color .3s;
     font-size: 1rem;
     font-weight: 500;
 }
@@ -524,15 +585,15 @@ body {
 }
 
 .watchlist-content li {
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
-    padding: 15px;
-    margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    transition: transform .2s, box-shadow .2s;
 }
 
 .watchlist-content li:hover {
@@ -545,7 +606,7 @@ body {
     gap: 10px;
 }
 
-.watchlist-input input[type="text"] {
+.watchlist-input input {
     flex: 1;
     padding: 12px;
     border: 1px solid #ddd;
@@ -562,7 +623,7 @@ body {
     color: #fff;
     font-size: 1rem;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background .3s;
 }
 
 .watchlist-input button:hover {
@@ -592,5 +653,39 @@ body {
 
     .content {
         flex: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        padding: 10px;
+    }
+
+    .sidebar .logo img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .header h1 {
+        font-size: 1.8rem;
+    }
+
+    .header p {
+        font-size: 0.9rem;
+    }
+
+    .login-card {
+        padding: 30px 20px;
+    }
+
+    .login-card h1 {
+        font-size: 1.4rem;
+    }
+
+    .login-card input,
+    .continue-btn,
+    .back-btn,
+    .provider-btn {
+        font-size: 0.9rem;
     }
 }
